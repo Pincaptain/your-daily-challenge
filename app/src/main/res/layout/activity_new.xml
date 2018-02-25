@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
+    tools:context="com.ydc.akatosh.yourdailychallenge.NewActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/new_profile_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/common_google_signin_btn_icon_dark"
+        app:civ_border_color="@color/cardview_light_background"
+        app:civ_border_width="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/new_profile_button"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/profile_name_placeholder"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/new_profile_image_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/new_clear_button"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/challenge_new_clear_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/new_challenge_content_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="128dp"
+        android:textColorHint="@color/colorAccentDarker"
+        android:theme="@style/MyEditTextTheme"
+        app:counterEnabled="true"
+        app:counterMaxLength="220"
+        app:counterTextAppearance="@style/MyCounterStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_profile_button">
+
+        <com.libizo.CustomEditText
+            android:id="@+id/new_challenge_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/challenge_new_content_text"
+            android:inputType="text"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            app:libIZO_clearIconTint="@color/colorPrimaryDark"
+            app:libIZO_setBorderColor="@color/colorPrimaryDark"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setClearIconVisible="true"
+            app:libIZO_setCornerRadius="4dp"
+            app:libIZO_setStrokeWidth="2dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/new_challenge_points_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColorHint="@color/colorAccentDarker"
+        android:theme="@style/MyEditTextTheme"
+        app:layout_constraintBottom_toTopOf="@+id/new_challenge_submit_button"
+        app:layout_constraintEnd_toStartOf="@+id/new_challenge_date_wrapper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_challenge_content_wrapper">
+
+        <com.libizo.CustomEditText
+            android:id="@+id/new_challenge_points"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:text="@string/challenge_new_points_text"
+            android:inputType="numberSigned"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            app:libIZO_clearIconTint="@color/colorPrimaryDark"
+            app:libIZO_setBorderColor="@color/colorPrimaryDark"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setClearIconVisible="true"
+            app:libIZO_setCornerRadius="4dp"
+            app:libIZO_setStrokeWidth="2dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/new_challenge_date_wrapper"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColorHint="@color/colorAccentDarker"
+        android:theme="@style/MyEditTextTheme"
+        app:layout_constraintBottom_toTopOf="@+id/new_challenge_submit_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_challenge_content_wrapper">
+
+        <com.libizo.CustomEditText
+            android:id="@+id/new_challenge_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="date"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorAccent"
+            app:libIZO_clearIconTint="@color/colorPrimaryDarker"
+            app:libIZO_setBorderColor="@color/colorPrimaryDarker"
+            app:libIZO_setBorderView="true"
+            app:libIZO_setClearIconVisible="true"
+            app:libIZO_setCornerRadius="4dp"
+            app:libIZO_setStrokeWidth="2dp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/new_challenge_submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/bind_button"
+        android:text="@string/challenge_new_submit_text"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/new_challenge_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <TextView
+        android:id="@+id/new_challenge_validator_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/challenge_new_validation_warning"
+        android:textAlignment="center"
+        android:textColor="@color/failure"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/new_challenge_content_wrapper"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_profile_button" />
+
+</android.support.constraint.ConstraintLayout>

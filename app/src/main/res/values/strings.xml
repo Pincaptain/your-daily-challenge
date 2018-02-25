@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Your Daily Challenge</string>
+    <string name="app_exit">Exit</string>
+
+    <string name="menu_start_text">Daily Challenge</string>
+    <string name="menu_options_text">Options</string>
+    <string name="menu_exit_text">Exit</string>
+
+    <string name="challenge_new">Have an idea for a challenge? Share it with us!</string>
+    <string name="challenge_re_roll">Re-roll challenge</string>
+    <string name="challenge_placeholder">Loading…</string>
+    <string name="challenge_finished_text">Done</string>
+    <string name="challenge_completed_text">Well done</string>
+    <string name="challenge_new_clear_text">Clear</string>
+    <string name="challenge_new_content_text">Challenge</string>
+    <string name="challenge_new_points_text">Points</string>
+    <string name="challenge_new_date_text">Date</string>
+    <string name="challenge_new_submit_text">Submit</string>
+    <string name="challenge_new_validation_warning">There was something wrong with your input. Please try again!</string>
+    <string name="challenge_new_successful">Your challenge was successfully uploaded! Our staff will review it as soon as possible.</string>
+
+    <string name="saved_challenge_finished">challengeFinished</string>
+    <string name="saved_challenge_text">challengeText</string>
+    <string name="saved_challenge_points">challengePoints</string>
+    <string name="saved_re_roll_status">reRollStatus</string>
+
+    <string name="profile_name_placeholder">Benjamin Stafford</string>
+    <string name="profile_image_description">User specific profile picture</string>
+    <string name="profile_sign_in">Sign In</string>
+
+    <string name="sign_in_successful">You have been successfully signed in!</string>
+    <string name="sign_in_unsuccessful">You have not been successfully signed in! Please try again!</string>
+
+    <string name="sign_out_successful">You have been successfully signed out!</string>
+    <string name="sign_out_unsuccessful">You have been unsuccessfully signed out! Please try again!</string>
+
+    <string name="delete_successful">Your account has been successfully deleted!</string>
+    <string name="delete_unsuccessful">Your account has been unsuccessfully deleted! Please try again!</string>
+
+    <string name="user_registered_to_database">This account was successfully registered to the database. Good luck!</string>
+    <string name="user_already_registered_to_database">This account was already registered to the database. Welcome back!</string>
+    <string name="user_unsuccessfully_registered_to_database">This account was unsuccessfully registered to the database. Please try again!</string>
+
+    <string name="collection_users_path">users</string>
+    <string name="collection_challenges_path">challenges</string>
+    <string name="collection_pending_path">pending</string>
+</resources>
