@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot documentSnapshots) {
                 if (documentSnapshots.isEmpty()) {
-                    database.collection(getResources().getString(R.string.collection_users_path)).document(user.getUid()).set(User.quickBuild(user));
+                        database.collection(getResources().getString(R.string.collection_users_path)).document(user.getUid()).set(User.quickBuild(user));
                 }
             }
         });
