@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/YourDailyChallenge.iml" filepath="$PROJECT_DIR$/YourDailyChallenge.iml" />
+      <module fileurl="file://C:\Users\Akatosh\AndroidStudioProjects\your-daily-challenge\YourDailyChallenge.iml" filepath="C:\Users\Akatosh\AndroidStudioProjects\your-daily-challenge\YourDailyChallenge.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/your-daily-challenge.iml" filepath="$PROJECT_DIR$/your-daily-challenge.iml" />
     </modules>
   </component>
 </project>
