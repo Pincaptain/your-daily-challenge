@@ -27,7 +27,7 @@
         <activity
             android:name=".NewActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
     </application>
 
 </manifest>

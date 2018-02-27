@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -40,7 +42,7 @@ import java.util.TimeZone;
 public class ChallengeActivity extends AppCompatActivity {
 
     /** True when and only when the user is fetching data from the database **/
-    private boolean isFetching = false;
+    private boolean fetching = false;
 
     /** View items **/
     private Button challengeFinishedButton;
@@ -58,6 +60,8 @@ public class ChallengeActivity extends AppCompatActivity {
     /** Database field **/
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
 
+    private InterstitialAd interstitialAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +69,10 @@ public class ChallengeActivity extends AppCompatActivity {
 
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         user = User.build(firebaseUser);
+
+        interstitialAd = new InterstitialAd(this);
+        interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_ad_id));
+        interstitialAd.loadAd(new AdRequest.Builder().build());
 
         challengeFinishedButton = findViewById(R.id.challenge_finished_button);
         challengeFinishedButton.setOnClickListener(new OnChallengeFinished());
@@ -169,7 +177,7 @@ public class ChallengeActivity extends AppCompatActivity {
      * stores the new challenge information.}
      */
     protected void addChallenge() {
-        isFetching = true;
+        fetching = true;
         database.collection(getResources().getString(R.string.collection_challenges_path))
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -195,7 +203,7 @@ public class ChallengeActivity extends AppCompatActivity {
                 // When loading ends
                 postFetch();
 
-                isFetching = false;
+                fetching = false;
             }
         });
     }
@@ -254,7 +262,7 @@ public class ChallengeActivity extends AppCompatActivity {
     }
 
     protected boolean isFetching() {
-        return isFetching;
+        return fetching;
     }
 
     /**
@@ -272,6 +280,10 @@ public class ChallengeActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (isFetching())
                 return;
+
+            if (interstitialAd.isLoaded()) {
+                interstitialAd.show();
+            }
 
             onFetch();
             addChallenge();
@@ -418,7 +430,7 @@ public class ChallengeActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            // TODO - Create and start a new ProfileActivity
+            startActivity(new Intent(ChallengeActivity.this, ProfileActivity.class));
         }
 
     }

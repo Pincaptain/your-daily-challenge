@@ -6,7 +6,12 @@
     <string name="menu_options_text">Options</string>
     <string name="menu_exit_text">Exit</string>
 
+    <string name="admob_id">ca-app-pub-4296598610078298~8943351767</string>
+    <string name="interstitial_ad_id">ca-app-pub-4296598610078298/4980944074</string>
+
     <string name="challenge_new">Have an idea for a challenge? Share it with us!</string>
+    <string name="challenge_return">Haven\'t completed your challenge yet? Go back and give it a shot!</string>
+    <string name="challenge_profile_points_label">Points:</string>
     <string name="challenge_re_roll">Re-roll challenge</string>
     <string name="challenge_placeholder">Loading…</string>
     <string name="challenge_finished_text">Done</string>

@@ -1,6 +1,7 @@
 package com.ydc.akatosh.yourdailychallenge;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -46,7 +47,7 @@ public class NewActivity extends AppCompatActivity {
     private FirebaseUser user;
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
 
-    private boolean isFetching = false;
+    private boolean fetching = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -111,7 +112,7 @@ public class NewActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            // TODO - Create and start a new ProfileActivity
+            startActivity(new Intent(NewActivity.this, ProfileActivity.class));
         }
 
     }
@@ -127,7 +128,7 @@ public class NewActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            if (isFetching)
+            if (fetching)
                 return;
 
             clearEditTexts(pointsEditText, challengeEditText);
@@ -171,7 +172,7 @@ public class NewActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            if (isFetching)
+            if (fetching)
                 return;
 
             if (!validateEditTexts()) {
