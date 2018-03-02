@@ -47,7 +47,7 @@ public class NewActivity extends AppCompatActivity {
     private FirebaseUser user;
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
 
-    private boolean fetching = false;
+    private boolean uploading = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -128,7 +128,7 @@ public class NewActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            if (fetching)
+            if (isUploading())
                 return;
 
             clearEditTexts(pointsEditText, challengeEditText);
@@ -172,7 +172,7 @@ public class NewActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            if (fetching)
+            if (isUploading())
                 return;
 
             if (!validateEditTexts()) {
@@ -256,6 +256,10 @@ public class NewActivity extends AppCompatActivity {
         toggleEditTexts(true, challengeEditText, pointsEditText);
         clearEditTexts(challengeEditText, pointsEditText);
         uploadProgressBar.setVisibility(View.INVISIBLE);
+    }
+
+    protected boolean isUploading() {
+        return uploading;
     }
 
 

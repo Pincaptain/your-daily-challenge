@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.ydc.akatosh.yourdailychallenge.Classes.Challenge;
 import com.ydc.akatosh.yourdailychallenge.Classes.User;
 
 import java.util.Arrays;
@@ -60,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
         Button exitButton = findViewById(R.id.exit_button);
         exitButton.setOnClickListener(new OnExitActivity());
 
-        Button optionsButton = findViewById(R.id.options_button);
-        optionsButton.setOnClickListener(new OnOptions());
-
         Button startButton = findViewById(R.id.start_button);
         startButton.setOnClickListener(new OnStart());
     }
@@ -80,24 +78,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             finish();
-        }
-
-    }
-
-    /**
-     * {@author Borjan Gjorovski}
-     * {@date 22-02-2018}
-     * {@link OnOptions}
-     *
-     * {@description Once triggered this functional interface starts
-     * the options activity. An activity where the user can modify the
-     * default preferences.}
-     */
-    protected class OnOptions implements View.OnClickListener {
-
-        @Override
-        public void onClick(View view) {
-            // TODO - Provide a new settings/options activity
         }
 
     }
@@ -177,7 +157,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(QuerySnapshot documentSnapshots) {
                 if (documentSnapshots.isEmpty()) {
-                        database.collection(getResources().getString(R.string.collection_users_path)).document(user.getUid()).set(User.quickBuild(user));
+                        database.collection(getResources().getString(R.string.collection_users_path)).document(user.getUid())
+                                .set(new User(user.getUid(), -1, 0, new Challenge()));
                 }
             }
         });

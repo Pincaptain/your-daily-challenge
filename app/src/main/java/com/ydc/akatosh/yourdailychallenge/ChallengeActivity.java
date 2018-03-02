@@ -56,6 +56,7 @@ public class ChallengeActivity extends AppCompatActivity {
 
     /** User field **/
     private User user;
+    private FirebaseUser firebaseUser;
 
     /** Database field **/
     private final FirebaseFirestore database = FirebaseFirestore.getInstance();
@@ -67,8 +68,8 @@ public class ChallengeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge);
 
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        user = User.build(firebaseUser);
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        user = new User(firebaseUser.getUid(), -1, 0, new Challenge());
 
         interstitialAd = new InterstitialAd(this);
         interstitialAd.setAdUnitId(getResources().getString(R.string.interstitial_ad_id));
@@ -114,9 +115,9 @@ public class ChallengeActivity extends AppCompatActivity {
         challengeTextView.setText(user.getChallenge().getChallenge());
 
         ImageView profileImage = findViewById(R.id.profile_image_view);
-        Picasso.with(this).load(user.getPhoto()).into(profileImage);
+        Picasso.with(this).load(firebaseUser.getPhotoUrl()).into(profileImage);
 
-        profileButton.setText(user.getName());
+        profileButton.setText(firebaseUser.getDisplayName());
 
         if (user.getChallenge().isFinished()) {
             disableButton(challengeFinishedButton,
@@ -215,6 +216,7 @@ public class ChallengeActivity extends AppCompatActivity {
      * {@param finished}
      */
     protected void saveChallenge(boolean finished) {
+        // Local save
         SharedPreferences sharedPreferences = ChallengeActivity.this.getPreferences(Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
